@@ -30,7 +30,7 @@ function Subscription (io) {
     }
     else if (!row.old_val){
       evt = 'created';
-      room = '#/contact/' + row.old_val.id;
+      room = '#/contact/' + row.new_val.id;
     }
     else{
       evt = 'updated';

@@ -47,7 +47,7 @@ services.factory("SocketService", function(){
   	updateRoom(msg);
   	if (window.location.hash == '#/'){
     	angular.element('[ng-controller="ContactCtrl"]').scope().Methods.GetContacts();
-    	//angular.element('[ng-controller="ContactCtrl"]').scope().$apply();
+    	angular.element('[ng-controller="ContactCtrl"]').scope().$apply();
     }
     angular.element('[ng-controller="ContactCtrl"]').scope().Methods.OnServerEvent(msg, event);
     angular.element('[ng-controller="ContactCtrl"]').scope().$apply();
