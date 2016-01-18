@@ -1,1 +1,0 @@
-# pushnotification.prototype
