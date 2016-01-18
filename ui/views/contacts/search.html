@@ -1,0 +1,27 @@
+<div ng-controller="ContactCtrl" class='container'>
+	<div class="row" style="margin-bottom: 5px;">
+		<div class="pull-right">
+			<a type="button" class="btn btn-primary" href="/#/contact">New Contact</a>
+		</div>
+	</div>
+	<div class="row">
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="contact in contacts" ng-click="Methods.NavigateToContact(contact)" class="clickable">
+					<td>{{contact.firstName}}</td>
+					<td>{{contact.lastName}}</td>
+					<td>{{contact.age}}</td>
+					<td>{{contact.email}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

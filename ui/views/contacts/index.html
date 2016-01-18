@@ -1,0 +1,35 @@
+<div class="row" ng-controller="ContactCtrl">
+	<form class="form-horizontal" name="contactForm">
+  <div class="form-group">
+    <label for="firstName" class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="firstName" name="firstName" ng-model="contact.firstName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="lastName" name="lastName" ng-model="contact.lastName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="age" class="col-sm-2 control-label">Age</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="age" name="age" ng-model="contact.age">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" name="email" ng-model="contact.email">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-primary" ng-click="Methods.SaveContact(contact)">Save</button>
+      <button type="button" class="btn btn-danger" ng-click="Methods.DeleteContact(contact)">Delete</button>
+      <a type="button" class="btn btn-link" href="/#/">Cancel</a>
+    </div>
+  </div>
+</form>
+</div>

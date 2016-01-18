@@ -1,0 +1,16 @@
+RethinkDB application - signal.io alongside with rethink to allow the users know with a record is being updated live. push notifications on updates on the records to allow merge when a new record has been created.
+
+implementation steps: 
+- install rethink
+- set up nodejs to integrate with rethinkdb
+- set up nodejs for CRUD on a single resource 
+- set up two instances of nodejs to watch the contacts table and write to log
+- integrate with socket.io
+
+think about:
+- optimization improvements for watches on the rethinkDB server
+
+lessons learned: 
+- rethinkdb might not be suited for being used with socket.io, unless the changefeed allows excluding session where the change was triggered. 
+- as i myself am new to socket.io, i wasn't sure how to exclude the initiator(browser) from being excluded from the push notification. However, the real benefit appears from when there are multiple nodejs servers behind a load balanced end point. The nodejs servers realize a change was made on the database and then they take up the responsibility to update the browsers connected to the servers.
+- one simple way to exclude the initiator is to use RethinkDB's ability to provide old and new values, and compare the browser's current model state with the new value, if they are the same, then the initiator will not let the user know of the change simply because the data is identical. - however, race conditions may still apperear if the round trip is slow enough to allow the users to make more changes before the push notification occurs. There are workarounds for this, using timestamps (not used in the prototype) will allow the browsers to know which value was updated, and who updated the value. The updated_by field can be used by the browser to decide whether or not a notification is displayed to the user. 
