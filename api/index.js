@@ -5,7 +5,7 @@ module.exports = exports = function(app) {
 
   // Home Page
   app.get('/', function(req,res){
-    res.sendfile('ui/views/index.html');
+    res.sendfile(process.env.PWD + 'ui/views/index.html');
   });
 
   // Contact Actions
