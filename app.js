@@ -17,7 +17,7 @@ var Subscription = require('./subscriptions').Subscription;
 app.engine('html', cons.swig);
 app.set('view engine', 'html');
 app.use(bodyParser.json());
-app.use(express.static('ui'));
+app.use(express.static(process.env.PWD + 'ui'));
 
 Api(app);
 
